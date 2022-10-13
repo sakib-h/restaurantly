@@ -20,7 +20,7 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: #00000080;
 	z-index: 0;
 }
 
@@ -30,54 +30,17 @@
 
 @layer components {
 	.container {
-		@apply w-[95%]  md:w-[90%] xl:w-[75%] mx-auto;
+		@apply w-[95%]  xl:w-[75%] mx-auto;
 	}
 
-	/* Navbar starts */
-	.navbar {
-		@apply relative w-full cursor-pointer;
-	}
-	.topInfo {
-		@apply container flex justify-center lg:justify-between items-center text-[#ffffff];
-	}
-	.topContent {
-		@apply flex flex-1 justify-evenly lg:justify-start items-center  my-3;
-	}
-	.info {
-		@apply flex justify-center items-center;
-	}
-	.topIcon {
-		@apply text-primary text-[14px] lg:text-[16px] 2xl:text-[18px];
-	}
-	.textNormal {
-		@apply text-[14px] lg:text-[16px] 2xl:text-[18px];
-	}
-	.language {
-		@apply hidden lg:flex text-[16px] 2xl:text-[18px];
-	}
-	.navigation {
-		@apply w-full bg-[#0c0b0999] text-[#ffffff] py-3;
-	}
-	.navContainer {
-		@apply container flex justify-between items-center;
-	}
-	.logo {
-		@apply font-Poppins text-[28px] lg:text-[32px];
-	}
-	.navLinks {
-		@apply hidden lg:flex flex-1 justify-between items-center;
-	}
-	.linksContainer {
-		@apply flex flex-1 justify-evenly items-center px-10;
-	}
 	.link {
-		@apply list-none cursor-pointer hover:text-[#d9ba85] transition-all ease-in duration-[0.3s] text-[14px] lg:text-[16px] 2xl:text-[18px];
+		@apply list-none cursor-pointer transition-all ease-in duration-[0.3s] text-[14px] 2xl:text-[16px];
 	}
 	.button {
-		@apply border-2 border-primary px-5 py-2 cursor-pointer hover:bg-primary transition-all ease-in duration-[0.3s] uppercase rounded-[50px] text-[13px] lg:text-[15px] 2xl:text-[17px];
+		@apply border-2 border-primary px-5 py-2 cursor-pointer hover:bg-primary transition-all ease-in duration-[0.3s] uppercase rounded-[50px] text-[13px]  2xl:text-[17px];
 	}
 	.navIcon {
-		@apply text-[28px] cursor-pointer;
+		@apply text-[28px] cursor-pointer  text-[#ffffff];
 	}
 
 	/* Navbar ends */

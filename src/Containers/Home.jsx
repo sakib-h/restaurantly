@@ -1,12 +1,12 @@
 import React from "react";
 import Navbar from "../Components/Navbar";
 
-const Hero = () => {
+const Home = () => {
 	return (
-		<div className="hero">
+		<div className="home" id="home">
 			<Navbar />
 		</div>
 	);
 };
 
-export default Hero;
+export default Home;

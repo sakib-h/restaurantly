@@ -1,10 +1,14 @@
 import "./App.css";
-import Hero from "./Sections/Hero";
+import About from "./Containers/About";
+import Home from "./Containers/Home";
+import Menu from "./Containers/Menu";
 
 function App() {
 	return (
 		<div className="App">
-			<Hero />
+			<Home />
+			<About />
+			<Menu />
 		</div>
 	);
 }

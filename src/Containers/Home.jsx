@@ -3,9 +3,9 @@ import Navbar from "../Components/Navbar";
 
 const Home = () => {
 	return (
-		<div className="home" id="home">
-			<Navbar />
-		</div>
+		<section className="home" id="home">
+			Home
+		</section>
 	);
 };
 

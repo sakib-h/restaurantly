@@ -123,7 +123,7 @@ const Navbar = () => {
 					</div>
 					<div className="block lg:hidden">
 						<GoThreeBars
-							className="navIcon"
+							className="icon"
 							onClick={() => {
 								setIsOpen(true);
 							}}
@@ -150,7 +150,7 @@ const Navbar = () => {
 						</div>
 						<div className="icon absolute right-10 top-5">
 							<IoMdClose
-								className="navIcon"
+								className="icon"
 								onClick={() => {
 									setIsOpen(false);
 								}}

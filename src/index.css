@@ -7,6 +7,9 @@
 :root {
 	scroll-behavior: smooth;
 }
+section {
+	min-height: 100vh;
+}
 .heroBg {
 	min-height: 100vh;
 	position: absolute;
@@ -33,10 +36,13 @@
 .active {
 	color: #d9ba85;
 }
-section {
-	min-height: 100vh;
+.playBtn {
+	position: relative;
+	width: 94px;
+	height: 94px;
+	border-radius: 50%;
+	background: radial-gradient(#cda45e 50%, rgba(205, 164, 94, 0.4) 52%);
 }
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -59,9 +65,9 @@ section {
 		@apply list-none cursor-pointer hover:text-[#d9ba85] transition-all ease-in duration-[0.3s] text-[14px] 2xl:text-[16px];
 	}
 	.button {
-		@apply border-2 border-primary px-5 py-2 cursor-pointer hover:bg-primary transition-all ease-in duration-[0.3s] uppercase rounded-[50px] text-[13px]  2xl:text-[17px];
+		@apply border-2 border-primary px-7 py-3 cursor-pointer hover:bg-primary transition-all ease-in duration-[0.3s] uppercase rounded-[50px] text-[13px]  2xl:text-[16px];
 	}
-	.navIcon {
+	.icon {
 		@apply text-[28px] cursor-pointer  text-[#ffffff];
 	}
 

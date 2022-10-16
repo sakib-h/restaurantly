@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { AiOutlineMobile } from "react-icons/ai";
-import { AiOutlineClockCircle } from "react-icons/ai";
 import { GoThreeBars } from "react-icons/go";
 import { IoMdClose } from "react-icons/io";
 import ScrollspyNav from "react-scrollspy-nav";
 import { motion, AnimatePresence } from "framer-motion";
+import { AiOutlineMobile } from "react-icons/ai";
+import { AiOutlineClockCircle } from "react-icons/ai";
 const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [isAtTop, setIsAtTop] = useState(false);
@@ -53,7 +53,7 @@ const Navbar = () => {
 
 	return (
 		<>
-			<div className="container   flex justify-center lg:justify-between items-center text-[#ffffff] transition ease-out duration-[0.3s]">
+			<div className="container relative  flex justify-center lg:justify-between items-center text-[#ffffff] transition ease-out duration-[0.3s]">
 				<div className=" flex flex-1 justify-evenly lg:justify-start items-center  my-3">
 					<div className="flex justify-center items-center pr-5">
 						<AiOutlineMobile className="topIcon" />
@@ -76,9 +76,8 @@ const Navbar = () => {
 					<span className="cursor-pointer">De</span>
 				</div>
 			</div>
-
 			<nav
-				className={`w-full  sticky top-0 z-20  text-[#ffffff] py-3 transition ease-out duration-[0.5s] ${
+				className={`w-full  sticky top-0  text-[#ffffff] py-3 transition ease-out duration-[0.5s] ${
 					isAtTop ? " bg-[#000000d9]  " : " bg-[#0c0b0999]  "
 				} `}>
 				<div className="container flex justify-between items-center">
@@ -135,7 +134,7 @@ const Navbar = () => {
 			<AnimatePresence>
 				{isOpen && (
 					<motion.nav
-						className="bg-[#000000e6] w-full h-screen fixed top-0 left-0 bottom-0 right-0 lg:hidden"
+						className="bg-[#000000e6] w-full h-screen fixed top-0 left-0 bottom-0 right-0 lg:hidden z-50"
 						initial={{ opacity: 0, y: "100vh" }}
 						animate={{ opacity: 1, y: 0 }}
 						exit={{ opacity: 0, y: "100vh" }}>
@@ -143,7 +142,11 @@ const Navbar = () => {
 							<div>
 								{navLinks.map((link) => (
 									<li key={link.id} className="link my-5">
-										<a href={`#${link.id}`}>{link.name}</a>
+										<a
+											href={`#${link.id}`}
+											onClick={() => setIsOpen(false)}>
+											{link.name}
+										</a>
 									</li>
 								))}
 							</div>

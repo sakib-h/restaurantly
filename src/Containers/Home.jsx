@@ -16,9 +16,9 @@ const Home = () => {
 	};
 
 	return (
-		<section>
-			<motion.section
-				className="home container flex flex-col  lg:flex-row items-center justify-center lg:justify-between min-h-screen overflow-hidden"
+		<>
+			<motion.div
+				className="home relative container flex flex-col  lg:flex-row items-center justify-center lg:justify-between min-h-screen overflow-hidden"
 				id="home"
 				initial={{ opacity: 0, scale: 0 }}
 				whileInView={{ opacity: 1, scale: 1 }}
@@ -44,11 +44,11 @@ const Home = () => {
 						}}
 					/>
 				</div>
-			</motion.section>
+			</motion.div>
 
 			{loading && (
 				<motion.div
-					className="bg-[#000000f2] w-full h-screen fixed top-0 left-0  z-10"
+					className="bg-[#000000f2] w-full h-screen fixed top-0 left-0  z-20"
 					initial={{ opacity: 0, scale: 0 }}
 					animate={{ opacity: 1, scale: 1 }}
 					transition={{ duration: 0.5 }}>
@@ -67,7 +67,7 @@ const Home = () => {
 					transition={{ duration: 0.5 }}
 					className="bg-[#000000f2] w-full h-screen fixed top-0 left-0
 						bottom-0 right-0 z-10">
-					<div className="icon absolute right-10 top-5 z-10">
+					<div className="icon absolute right-10 top-5 z-20">
 						<IoMdClose
 							className="icon"
 							onClick={() => {
@@ -85,8 +85,8 @@ const Home = () => {
 					/>
 				</div>
 			)}
-			<div className="heroBg" />
-		</section>
+			<div className="overlay"></div>
+		</>
 	);
 };
 

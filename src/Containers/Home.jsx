@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { FiPlay } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
 import ReactPlayer from "react-player";
 import { ClipLoader } from "react-spinners";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 const Home = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [loading, setLoading] = useState(false);
@@ -13,21 +12,7 @@ const Home = () => {
 		setTimeout(() => {
 			setIsOpen(true);
 			setLoading(false);
-		}, 2000);
-	};
-
-	const closeVariant = {
-		hidden: {
-			opacity: 0,
-			scale: 0,
-			transition: {
-				duration: 0.5,
-			},
-		},
-		visible: {
-			opacity: 1,
-			scale: 1,
-		},
+		}, 1500);
 	};
 
 	return (
@@ -39,11 +24,11 @@ const Home = () => {
 				whileInView={{ opacity: 1, scale: 1 }}
 				transition={{ duration: 0.5 }}>
 				<div className=" flex flex-col items-center lg:items-start justify-center  pb-10 lg:pb-0">
-					<h1 className="font-Poppins text-center lg:text-start  text-[#ffffff] text-[48px] lg:text-[52px] 2xl:text-[58px] leading-[56px] font-[700] pb-3">
+					<h1 className="font-Poppins text-center lg:text-start  text-[#ffffff] text-[36px] md:text-[42px] lg:text-[48px] 2xl:text-[52px] leading-[56px] font-[700] pb-3">
 						Welcome to{" "}
 						<span className="text-[#cda45e]">Restaurantly</span>
 					</h1>
-					<h2 className="font-Play-fair text-center lg:text-start  text-[#eeeeee] text-[22px] pb-10">
+					<h2 className="font-Play-fair text-center lg:text-start  text-[#eeeeee] text-[22px] lg:text-[24px] pb-10">
 						Delivering great food for more than 8 years!
 					</h2>
 					<div className="flex items-center text-[#ffffff]">
@@ -76,8 +61,12 @@ const Home = () => {
 			)}
 			{isOpen && (
 				<div
+					initial={{ opacity: 0, scale: 0 }}
+					animate={{ opacity: 1, scale: 1 }}
+					exit={{ opacity: 0, scale: 0 }}
+					transition={{ duration: 0.5 }}
 					className="bg-[#000000f2] w-full h-screen fixed top-0 left-0
-					bottom-0 right-0 z-10">
+						bottom-0 right-0 z-10">
 					<div className="icon absolute right-10 top-5">
 						<IoMdClose
 							className="icon"

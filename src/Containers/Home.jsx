@@ -3,7 +3,7 @@ import { FiPlay } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
 import ReactPlayer from "react-player";
 import { ClipLoader } from "react-spinners";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 const Home = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [loading, setLoading] = useState(false);
@@ -16,11 +16,28 @@ const Home = () => {
 		}, 2000);
 	};
 
+	const closeVariant = {
+		hidden: {
+			opacity: 0,
+			scale: 0,
+			transition: {
+				duration: 0.5,
+			},
+		},
+		visible: {
+			opacity: 1,
+			scale: 1,
+		},
+	};
+
 	return (
 		<>
-			<section
+			<motion.section
 				className="home container flex flex-col  lg:flex-row items-center justify-center lg:justify-between"
-				id="home">
+				id="home"
+				initial={{ opacity: 0, scale: 0 }}
+				whileInView={{ opacity: 1, scale: 1 }}
+				transition={{ duration: 0.5 }}>
 				<div className=" flex flex-col items-center lg:items-start justify-center  pb-10 lg:pb-0">
 					<h1 className="font-Poppins text-center lg:text-start  text-[#ffffff] text-[48px] lg:text-[52px] 2xl:text-[58px] leading-[56px] font-[700] pb-3">
 						Welcome to{" "}
@@ -35,57 +52,49 @@ const Home = () => {
 					</div>
 				</div>
 				<div>
-					<div className="playBtn">
-						<FiPlay
-							className="icon absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
-							onClick={() => {
-								isLoading();
-							}}
-						/>
-					</div>
+					<button
+						className="playBtn"
+						onClick={() => {
+							isLoading();
+						}}
+					/>
 				</div>
-			</section>
+			</motion.section>
 
 			{loading && (
-				<div className="bg-[#000000e6] w-full h-screen fixed top-0 left-0">
+				<motion.div
+					className="bg-[#000000f2] w-full h-screen fixed top-0 left-0  z-10"
+					initial={{ opacity: 0, scale: 0 }}
+					animate={{ opacity: 1, scale: 1 }}
+					transition={{ duration: 0.5 }}>
 					<ClipLoader
 						color="#ffffff"
 						size="24px"
 						className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
 					/>
-				</div>
+				</motion.div>
 			)}
 			{isOpen && (
-				<>
-					<div
-						className="bg-[#000000e6] w-full h-screen fixed top-0 left-0
-					bottom-0 right-0">
-						<div className="icon absolute right-10 top-5">
-							<IoMdClose
-								className="icon"
-								onClick={() => {
-									setIsOpen(false);
-								}}
-							/>
-						</div>
-						<ReactPlayer
-							url="https://www.youtube.com/watch?v=u6BOC7CDUTQ"
-							controls={true}
-							width="560px"
-							height="315px"
-							playing={true}
-							className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] border-none outline-none"
-							// style={{
-							// 	position: "absolute",
-							// 	top: "50%",
-							// 	left: "50%",
-							// 	transform: "translate(-50%,-50%)",
-							// 	border: "none",
-							// 	outline: "none",
-							// }}
+				<div
+					className="bg-[#000000f2] w-full h-screen fixed top-0 left-0
+					bottom-0 right-0 z-10">
+					<div className="icon absolute right-10 top-5">
+						<IoMdClose
+							className="icon"
+							onClick={() => {
+								setIsOpen(false);
+							}}
 						/>
 					</div>
-				</>
+					<ReactPlayer
+						url="https://www.youtube.com/watch?v=u6BOC7CDUTQ"
+						controls={true}
+						width="95%"
+						height="80%"
+						playing={true}
+						className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] border-none outline-none"
+					/>
+				</div>
 			)}
 		</>
 	);

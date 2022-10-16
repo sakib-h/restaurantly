@@ -53,7 +53,7 @@ const Navbar = () => {
 
 	return (
 		<>
-			<div className="container  flex justify-center lg:justify-between items-center text-[#ffffff] transition ease-out duration-[0.3s]">
+			<div className="container   flex justify-center lg:justify-between items-center text-[#ffffff] transition ease-out duration-[0.3s]">
 				<div className=" flex flex-1 justify-evenly lg:justify-start items-center  my-3">
 					<div className="flex justify-center items-center pr-5">
 						<AiOutlineMobile className="topIcon" />
@@ -78,7 +78,7 @@ const Navbar = () => {
 			</div>
 
 			<nav
-				className={`w-full  sticky top-0   text-[#ffffff] py-3 transition ease-out duration-[0.5s] ${
+				className={`w-full  sticky top-0 z-20  text-[#ffffff] py-3 transition ease-out duration-[0.5s] ${
 					isAtTop ? " bg-[#000000d9]  " : " bg-[#0c0b0999]  "
 				} `}>
 				<div className="container flex justify-between items-center">

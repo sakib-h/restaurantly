@@ -8,7 +8,6 @@ function App() {
 	return (
 		<div className="App relative">
 			<Navbar />
-			<div className="heroBg" />
 			<Home />
 			<About />
 			<Menu />

@@ -77,7 +77,7 @@ const Navbar = () => {
 				</div>
 			</div>
 			<nav
-				className={`w-full  sticky top-0  text-[#ffffff] py-3 transition ease-out duration-[0.5s] ${
+				className={`w-full  sticky top-0 z-50  text-[#ffffff] py-3 transition ease-out duration-[0.5s] ${
 					isAtTop ? " bg-[#000000d9]  " : " bg-[#0c0b0999]  "
 				} `}>
 				<div className="container flex justify-between items-center">

@@ -152,6 +152,7 @@ section {
 	height: 60px;
 	width: 60px;
 	z-index: 1;
+	transition: 0.3s ease;
 }
 .aboutImage::after {
 	position: absolute;
@@ -163,6 +164,16 @@ section {
 	height: 60px;
 	width: 60px;
 	z-index: 1;
+	transition: 0.3s ease;
+}
+
+.aboutImage:hover::before {
+	top: 10px;
+	left: 10px;
+}
+.aboutImage:hover::after {
+	bottom: 10px;
+	right: 10px;
 }
 
 /* Tailwind CSS */
@@ -191,5 +202,8 @@ section {
 	}
 	.icon {
 		@apply text-[28px] cursor-pointer  text-[#ffffff];
+	}
+	.listIcons {
+		@apply text-[#cda45e] mr-2 text-[20px];
 	}
 }

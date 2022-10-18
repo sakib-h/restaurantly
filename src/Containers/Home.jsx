@@ -22,7 +22,7 @@ const Home = () => {
 				id="home"
 				initial={{ opacity: 0, scale: 0 }}
 				whileInView={{ opacity: 1, scale: 1 }}
-				transition={{ duration: 0.5 }}>
+				transition={{ duration: 0.4 }}>
 				<div className=" flex flex-col items-center lg:items-start justify-center  pb-10 lg:pb-0">
 					<h1 className="font-Poppins text-center lg:text-start  text-[#ffffff] text-[36px] md:text-[42px] lg:text-[44px] 2xl:text-[48px] leading-[56px] font-[700] pb-3">
 						Welcome to{" "}

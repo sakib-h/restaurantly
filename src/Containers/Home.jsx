@@ -26,7 +26,7 @@ const Home = () => {
 				<div className=" flex flex-col items-center lg:items-start justify-center  pb-10 lg:pb-0">
 					<h1 className="font-Poppins text-center lg:text-start  text-[#ffffff] text-[36px] md:text-[42px] lg:text-[44px] 2xl:text-[48px] leading-[56px] font-[700] pb-3">
 						Welcome to{" "}
-						<span className="text-[#cda45e]">Restaurantly</span>
+						<span className="text-primary">Restaurantly</span>
 					</h1>
 					<h2 className="font-Play-fair text-center lg:text-start  text-[#eeeeee] text-[20px] lg:text-[22px] pb-10">
 						Delivering great food for more than 8 years!

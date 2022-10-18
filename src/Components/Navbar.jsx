@@ -78,7 +78,7 @@ const Navbar = () => {
 			</div>
 			<nav
 				className={`w-full  sticky top-0 z-50  text-[#ffffff] py-3 transition ease-out duration-[0.5s] ${
-					isAtTop ? " bg-[#000000d9]  " : " bg-[#0c0b0999]  "
+					isAtTop ? " bg-[#000000f2]  " : " bg-[#0c0b0999]  "
 				} `}>
 				<div className="container flex justify-between items-center">
 					<div className="font-Poppins text-[28px] lg:text-[32px]">
@@ -101,7 +101,7 @@ const Navbar = () => {
 										"gallery",
 										"contact",
 									]}
-									offset={-120}
+									offset={-130}
 									activeNavClass="text-[#d9ba85]"
 									scrollDuration="300">
 									<li className="link">

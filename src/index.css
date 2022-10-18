@@ -153,6 +153,7 @@ section {
 	width: 60px;
 	z-index: 1;
 	transition: 0.3s ease;
+	/* color: #1a1814; */
 }
 .aboutImage::after {
 	position: absolute;
@@ -174,6 +175,7 @@ section {
 .aboutImage:hover::after {
 	bottom: 10px;
 	right: 10px;
+
 }
 
 /* Tailwind CSS */

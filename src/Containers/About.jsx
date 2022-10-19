@@ -129,7 +129,7 @@ const About = () => {
 								key={card.index}
 								whileHover="hover"
 								variants={backGroundColor}
-								className="bg-[#1a1814] py-12 px-8 ">
+								className="bg-[#1a1814] py-12 px-8 w-full">
 								<motion.span
 									className="text-primary font-bold text-[1.75rem] font-Open-sans leading-[2.5rem]"
 									variants={whiteColor}>

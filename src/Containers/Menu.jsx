@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import menu from "../Data/Menu.json";
+import { menuItems } from "../Data/Menu";
+
+console.log(menuItems);
 const Menu = () => {
 	const [active, setActive] = useState("all");
 	return (
@@ -33,6 +35,17 @@ const Menu = () => {
 							</li>
 						)
 					)}
+				</div>
+				<div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+					{menuItems.map((item) => (
+						<div key={item.id}>
+							<div className="flex flex-row justify-between items-start">
+								<div>
+									<img src={item.img} alt="" />
+								</div>
+							</div>
+						</div>
+					))}
 				</div>
 			</div>
 		</section>

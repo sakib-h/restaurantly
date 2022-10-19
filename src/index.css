@@ -153,7 +153,7 @@ section {
 	width: 60px;
 	z-index: 1;
 	transition: 0.3s ease;
-	/* color: #1a1814; */
+	/* color:  */
 }
 .aboutImage::after {
 	position: absolute;
@@ -175,7 +175,16 @@ section {
 .aboutImage:hover::after {
 	bottom: 10px;
 	right: 10px;
+}
 
+.dotBg::after {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	color: #bab3a6;
+	content: ".........................................................................................................................................................................................................";
+	z-index: 0;
 }
 
 /* Tailwind CSS */

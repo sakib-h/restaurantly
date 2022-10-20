@@ -43,7 +43,7 @@ export const menuItems = [
 		price: "$8.95",
 		ingredient: " Lorem, deren, trataro, filede, nerada",
 		img: CaesarSelections,
-		category: "salads",
+		category: "salad",
 	},
 
 	{
@@ -71,7 +71,7 @@ export const menuItems = [
 		price: "$9.95",
 		ingredient: " Fresh spinach, crisp romaine, tomatoes, and Greek olives",
 		img: GreekSalad,
-		category: "salads",
+		category: "salad",
 	},
 
 	{
@@ -81,7 +81,7 @@ export const menuItems = [
 		ingredient:
 			" Fresh spinach with mushrooms, hard boiled egg, and warm bacon vinaigrette",
 		img: SpinachSalad,
-		category: "salads",
+		category: "salad",
 	},
 
 	{

@@ -3,6 +3,11 @@ import Navbar from "./Components/Navbar";
 import About from "./Containers/About";
 import Home from "./Containers/Home";
 import Menu from "./Containers/Menu";
+import Specials from "./Containers/Specials";
+import Events from "./Containers/Events";
+import Chefs from "./Containers/Chefs";
+import Gallery from "./Containers/Gallery";
+import Contact from "./Containers/Contact";
 
 function App() {
 	return (
@@ -12,6 +17,11 @@ function App() {
 			<Home />
 			<About />
 			<Menu />
+			<Specials />
+			<Events />
+			<Chefs />
+			<Gallery />
+			<Contact />
 		</div>
 	);
 }

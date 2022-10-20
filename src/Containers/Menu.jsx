@@ -59,7 +59,7 @@ const Menu = () => {
 						{filterItem.map((item) => (
 							<AnimatePresence key={item.id}>
 								<motion.div variants={animationVariants} layout>
-									<div className="flex flex-row justify-between items-start">
+									<div className="flex flex-row justify-between items-center lg:items-start overflow-hidden">
 										<div className="pr-5">
 											<img
 												src={item.img}

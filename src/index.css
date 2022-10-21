@@ -187,6 +187,15 @@ section {
 	z-index: 0;
 }
 
+.specialMenu::after {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	content: "";
+	border-right: 2px solid #cda45e;
+}
+
 /* Tailwind CSS */
 
 @tailwind base;
@@ -195,7 +204,7 @@ section {
 
 @layer components {
 	.container {
-		@apply w-[95%] lg:w-[85%]  xl:w-[75%] mx-auto;
+		@apply w-[92%] lg:w-[85%]  xl:w-[75%] mx-auto;
 	}
 
 	.topIcon {

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -6,39 +6,9 @@ import { Pagination, Autoplay } from "swiper";
 import event1 from "../Assets/Images/event-custom.jpg";
 import event2 from "../Assets/Images/event-birthday.jpg";
 import event3 from "../Assets/Images/event-private.jpg";
+import Form from "../Components/Form";
 
 const Events = () => {
-	// declaring refs
-	const nameRef = useRef();
-	const emailRef = useRef();
-	const phoneRef = useRef();
-	const dateRef = useRef();
-	const timeRef = useRef();
-	const peopleRef = useRef();
-	const messageRef = useRef();
-
-	// declaring states
-	const [name, setName] = useState("");
-	const [error, setError] = useState(false);
-	const [errorMessage, setErrorMessage] = useState("");
-
-	// form validation
-	const formValidation = () => {
-		if (/^[a-zA-Z ]{2,30}$/.test(nameRef.current.value)) {
-			setError(false);
-			setName(nameRef.current.value);
-		} else {
-			setError(true);
-			setErrorMessage("name is invalid");
-		}
-	};
-
-	console.log(name);
-	console.log(error);
-	console.log(errorMessage);
-	const handleSubmit = (e) => {
-		e.preventDefault();
-	};
 	return (
 		<section id="events" className=" text-[#ffffff]">
 			<div className="events relative py-32">
@@ -217,80 +187,7 @@ const Events = () => {
 						</h1>
 					</div>
 					<div className="w-full">
-						<form className="flex flex-col justify-center items-center">
-							<div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
-								<input
-									type="text"
-									name="name"
-									id="name"
-									placeholder="Your Name"
-									ref={nameRef}
-									onChange={formValidation}
-									required
-								/>
-								<input
-									type="email"
-									name="email"
-									id="email"
-									placeholder="email"
-									ref={emailRef}
-									required
-								/>
-								<input
-									type="tel"
-									name="phone"
-									id="phone"
-									placeholder="Your Phone"
-									ref={phoneRef}
-									required
-								/>
-								<input
-									type="date"
-									name="date"
-									id="date"
-									placeholder="Date"
-									ref={dateRef}
-									required
-									className="cursor-text"
-								/>
-								<input
-									type="time"
-									id="start"
-									name="trip-start"
-									defaultValue="21:30"
-									ref={timeRef}
-									required
-									className="cursor-text"
-								/>
-								<input
-									type="number"
-									name="people"
-									min="1"
-									max="100"
-									id="people"
-									ref={peopleRef}
-									placeholder="Number of People"
-									required
-								/>
-
-								<textarea
-									type="textarea"
-									className="col-span-1 md:col-span-2 lg:col-span-3 mb-[24px]"
-									ref={messageRef}
-									placeholder="Message (Max Length 500 characters)"
-									rows="5"
-									maxLength="500"
-								/>
-							</div>
-							<div className="">
-								<button
-									type="submit"
-									className="bg-primary px-[35px] py-[10px] text-[#ffffff] rounded-[50px] cursor-pointer hover:bg-[#d3af71] transition-all ease-in duration-400"
-									onSubmit={handleSubmit}>
-									Book a Table
-								</button>
-							</div>
-						</form>
+						<Form />
 					</div>
 				</div>
 			</div>

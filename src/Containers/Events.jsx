@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -9,7 +9,6 @@ import event3 from "../Assets/Images/event-private.jpg";
 
 const Events = () => {
 	// declaring refs
-
 	const nameRef = useRef();
 	const emailRef = useRef();
 	const phoneRef = useRef();
@@ -18,6 +17,25 @@ const Events = () => {
 	const peopleRef = useRef();
 	const messageRef = useRef();
 
+	// declaring states
+	const [name, setName] = useState("");
+	const [error, setError] = useState(false);
+	const [errorMessage, setErrorMessage] = useState("");
+
+	// form validation
+	const formValidation = () => {
+		if (/^[a-zA-Z ]{2,30}$/.test(nameRef.current.value)) {
+			setError(false);
+			setName(nameRef.current.value);
+		} else {
+			setError(true);
+			setErrorMessage("name is invalid");
+		}
+	};
+
+	console.log(name);
+	console.log(error);
+	console.log(errorMessage);
 	const handleSubmit = (e) => {
 		e.preventDefault();
 	};
@@ -199,9 +217,7 @@ const Events = () => {
 						</h1>
 					</div>
 					<div className="w-full">
-						<form
-							handleSubmit={handleSubmit}
-							className="flex flex-col justify-center items-center">
+						<form className="flex flex-col justify-center items-center">
 							<div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
 								<input
 									type="text"
@@ -209,6 +225,7 @@ const Events = () => {
 									id="name"
 									placeholder="Your Name"
 									ref={nameRef}
+									onChange={formValidation}
 									required
 								/>
 								<input
@@ -262,13 +279,14 @@ const Events = () => {
 									ref={messageRef}
 									placeholder="Message (Max Length 500 characters)"
 									rows="5"
-									maxlength="3000"
+									maxLength="500"
 								/>
 							</div>
 							<div className="">
 								<button
 									type="submit"
-									className="bg-primary px-[35px] py-[10px] text-[#ffffff] rounded-[50px] cursor-pointer hover:bg-[#d3af71] transition-all ease-in duration-400">
+									className="bg-primary px-[35px] py-[10px] text-[#ffffff] rounded-[50px] cursor-pointer hover:bg-[#d3af71] transition-all ease-in duration-400"
+									onSubmit={handleSubmit}>
 									Book a Table
 								</button>
 							</div>

@@ -32,13 +32,11 @@ const Testimonials = () => {
 				</div>
 				<div className="w-full">
 					<Swiper
-						slidesPerView={3}
-						spaceBetween={30}
+						modules={[Pagination, Autoplay]}
 						pagination={{
 							clickable: true,
 						}}
 						loop={true}
-						modules={[Pagination, Autoplay]}
 						autoplay={{
 							delay: 2500,
 							disableOnInteraction: false,
@@ -46,11 +44,10 @@ const Testimonials = () => {
 						breakpoints={{
 							100: {
 								slidesPerView: 1,
-								spaceBetween: 30,
 							},
 							768: {
 								slidesPerView: 2,
-								spaceBetween: 20,
+								spaceBetween: 30,
 							},
 							1024: {
 								slidesPerView: 3,
@@ -58,114 +55,143 @@ const Testimonials = () => {
 							},
 						}}
 						className="mySwiper">
-						<SwiperSlide>
-							<div className="quotes">
-								<p className="text-center lg:flex">
-									<ImQuotesLeft className="quote quote-left" />
+						<SwiperSlide className="relative mb-5">
+							<div className=" bg-[#26231D] px-5 pt-5 pb-20 rounded-[6px] font-Open-sans text-[14px] italic font-[480] leading-[21px] text-[#ffffff] ">
+								<p className="relative text-start">
+									<ImQuotesLeft className="quoteIcon top-[-10px] left-0 mr-4" />
 									Proin iaculis purus consequat sem cure digni
 									ssim donec porttitora entum suscipit
 									rhoncus. Accusantium quam, ultricies eget
 									id, aliquam eget nibh et. Maecen aliquam,
-									risus at semper.
-									<ImQuotesRight className="quote quote-right" />
+									risus at semper . Lorem ipsum dolor sit amet
+									consectetur adipisicing elit. Id, vitae!
+									<ImQuotesRight className="quoteIcon bottom-[-10px] right-0 ml-4" />
 								</p>
 							</div>
-							<div className="info">
+							<div className=" relative  bottom-[45px]  left-5 z-[2]">
 								<img
 									src={testimonial1}
-									alt=""
+									alt="testimonial1"
 									className="avatar"
 								/>
-								<h3>Saul Goodman</h3>
-								<h4>Ceo & FounderCeo & Founder</h4>
+								<h3 className="font-Play-fair font-[700] text-[18px] text-[#ffffff] mt-5 mb-1">
+									Saul Goodman
+								</h3>
+								<h4 className="font-Play-fair font-[500] text-[14px] text-[#ffffff99]">
+									Ceo & FounderCeo & Founder
+								</h4>
 							</div>
 						</SwiperSlide>
-						<SwiperSlide>
-							<div className="quotes">
-								<p className="text-center">
-									<ImQuotesLeft className="quote quote-left" />
-									Export tempor illum tamen malis malis eram
-									quae irure esse labore quem cillum quid
-									cillum eram malis quorum velit fore eram
-									velit sunt aliqua noster fugiat irure amet
-									legam anim culpa.
-									<ImQuotesRight className="quote quote-right" />
+
+						<SwiperSlide className="relative mb-5">
+							<div className=" bg-[#26231D] px-5 pt-5 pb-20 rounded-[6px] font-Open-sans text-[14px] italic font-[480] leading-[21px] text-[#ffffff] ">
+								<p className="relative text-start">
+									<ImQuotesLeft className="quoteIcon top-[-10px] left-0 mr-4" />
+									Proin iaculis purus consequat sem cure digni
+									ssim donec porttitora entum suscipit
+									rhoncus. Accusantium quam, ultricies eget
+									id, aliquam eget nibh et. Maecen aliquam,
+									risus at semper . Lorem ipsum dolor sit amet
+									consectetur adipisicing elit. Id, vitae!
+									<ImQuotesRight className="quoteIcon bottom-[-10px] right-0 ml-4" />
 								</p>
 							</div>
-							<div className="info">
+							<div className=" relative  bottom-[45px]  left-5 z-[2]">
 								<img
 									src={testimonial2}
-									alt=""
+									alt="testimonial2"
 									className="avatar"
 								/>
-								<h3>Sara Wilsson</h3>
-								<h4>Designer</h4>
+								<h3 className="font-Play-fair font-[700] text-[18px] text-[#ffffff] mt-5 mb-1">
+									Sara Wilsson
+								</h3>
+								<h4 className="font-Play-fair font-[500] text-[14px] text-[#ffffff99]">
+									Lawyer
+								</h4>
 							</div>
 						</SwiperSlide>
-						<SwiperSlide>
-							<div className="quotes">
-								<p className="text-center">
-									<ImQuotesLeft className="quote quote-left" />
-									Enim nisi quem export duis labore cillum
-									quae magna enim sint quorum nulla quem
-									veniam duis minim tempor labore quem eram
-									duis noster aute amet eram fore quis sint
-									minim.
-									<ImQuotesRight className="quote quote-right" />
+
+						<SwiperSlide className="relative mb-5">
+							<div className=" bg-[#26231D] px-5 pt-5 pb-20 rounded-[6px] font-Open-sans text-[14px] italic font-[480] leading-[21px] text-[#ffffff] ">
+								<p className="relative text-start">
+									<ImQuotesLeft className="quoteIcon top-[-10px] left-0 mr-4" />
+									Proin iaculis purus consequat sem cure digni
+									ssim donec porttitora entum suscipit
+									rhoncus. Accusantium quam, ultricies eget
+									id, aliquam eget nibh et. Maecen aliquam,
+									risus at semper . Lorem ipsum dolor sit amet
+									consectetur adipisicing elit. Id, vitae!
+									<ImQuotesRight className="quoteIcon bottom-[-10px] right-0 ml-4" />
 								</p>
 							</div>
-							<div className="info">
+							<div className=" relative  bottom-[45px]  left-5 z-[2]">
 								<img
 									src={testimonial3}
-									alt=""
+									alt="testimonial3"
 									className="avatar"
 								/>
-								<h3>Jena Karlis</h3>
-								<h4>Store Owner</h4>
+								<h3 className="font-Play-fair font-[700] text-[18px] text-[#ffffff] mt-5 mb-1">
+									Jena Karlis
+								</h3>
+								<h4 className="font-Play-fair font-[500] text-[14px] text-[#ffffff99]">
+									Real Estate Investor
+								</h4>
 							</div>
 						</SwiperSlide>
-						<SwiperSlide>
-							<div className="quotes">
-								<p className="text-center">
-									<ImQuotesLeft className="quote quote-left" />
-									Fugiat enim eram quae cillum dolore dolor
-									amet nulla culpa multos export minim fugiat
-									minim velit minim dolor enim duis veniam
-									ipsum anim magna sunt elit fore quem dolore
-									labore illum veniam.
-									<ImQuotesRight className="quote quote-right" />
+
+						<SwiperSlide className="relative mb-5">
+							<div className=" bg-[#26231D] px-5 pt-5 pb-20 rounded-[6px] font-Open-sans text-[14px] italic font-[480] leading-[21px] text-[#ffffff] ">
+								<p className="relative text-start">
+									<ImQuotesLeft className="quoteIcon top-[-10px] left-0 mr-4" />
+									Proin iaculis purus consequat sem cure digni
+									ssim donec porttitora entum suscipit
+									rhoncus. Accusantium quam, ultricies eget
+									id, aliquam eget nibh et. Maecen aliquam,
+									risus at semper . Lorem ipsum dolor sit amet
+									consectetur adipisicing elit. Id, vitae!
+									<ImQuotesRight className="quoteIcon bottom-[-10px] right-0 ml-4" />
 								</p>
 							</div>
-							<div className="info">
+							<div className=" relative  bottom-[45px]  left-5 z-[2]">
 								<img
 									src={testimonial4}
-									alt=""
+									alt="testimonial4"
 									className="avatar"
 								/>
-								<h3>Matt Brandon</h3>
-								<h4>Freelancer</h4>
+								<h3 className="font-Play-fair font-[700] text-[18px] text-[#ffffff] mt-5 mb-1">
+									Matt Brandon
+								</h3>
+								<h4 className="font-Play-fair font-[500] text-[14px] text-[#ffffff99]">
+									Neuron Surgeon, NY Hospital
+								</h4>
 							</div>
 						</SwiperSlide>
-						<SwiperSlide>
-							<div className="quotes">
-								<p className="text-center">
-									<ImQuotesLeft className="quote quote-left" />
-									Quis quorum aliqua sint quem legam fore sunt
-									eram irure aliqua veniam tempor noster
-									veniam enim culpa labore duis sunt culpa
-									nulla illum cillum fugiat legam esse veniam
-									culpa fore nisi cillum quid.
-									<ImQuotesRight className="quote quote-right" />
+
+						<SwiperSlide className="relative mb-5">
+							<div className=" bg-[#26231D] px-5 pt-5 pb-20 rounded-[6px] font-Open-sans text-[14px] italic font-[480] leading-[21px] text-[#ffffff] ">
+								<p className="relative text-start">
+									<ImQuotesLeft className="quoteIcon top-[-10px] left-0 mr-4" />
+									Proin iaculis purus consequat sem cure digni
+									ssim donec porttitora entum suscipit
+									rhoncus. Accusantium quam, ultricies eget
+									id, aliquam eget nibh et. Maecen aliquam,
+									risus at semper . Lorem ipsum dolor sit amet
+									consectetur adipisicing elit. Id, vitae!
+									<ImQuotesRight className="quoteIcon bottom-[-10px] right-0 ml-4" />
 								</p>
 							</div>
-							<div className="info">
+							<div className=" relative  bottom-[45px]  left-5 z-[2]">
 								<img
 									src={testimonial5}
-									alt=""
+									alt="testimonial5"
 									className="avatar"
 								/>
-								<h3>John Larson</h3>
-								<h4>Entrepreneur</h4>
+								<h3 className="font-Play-fair font-[700] text-[18px] text-[#ffffff] mt-5 mb-1">
+									John Larson
+								</h3>
+								<h4 className="font-Play-fair font-[500] text-[14px] text-[#ffffff99]">
+									Entrepreneur
+								</h4>
 							</div>
 						</SwiperSlide>
 					</Swiper>

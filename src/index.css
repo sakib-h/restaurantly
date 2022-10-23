@@ -38,4 +38,12 @@
 	.listIcons {
 		@apply text-[#cda45e] mr-2 text-[20px];
 	}
+
+	.quoteIcon {
+		@apply relative text-[#cda45e] text-[26px] inline-block;
+	}
+
+	.avatar {
+		@apply w-[90px]  rounded-full object-cover border-[6px] border-[#ffffff33];
+	}
 }

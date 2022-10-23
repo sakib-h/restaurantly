@@ -7,6 +7,7 @@ import event1 from "../Assets/Images/event-custom.jpg";
 import event2 from "../Assets/Images/event-birthday.jpg";
 import event3 from "../Assets/Images/event-private.jpg";
 import Form from "../Components/Form";
+import Testimonials from "../Components/Testimonials";
 
 const Events = () => {
 	return (
@@ -172,25 +173,8 @@ const Events = () => {
 				</div>
 				<div className="eventsBg" />
 			</div>
-
-			<div className="reservation bg-[#0C0B09] py-20">
-				<div className="container">
-					<div className="title mb-[40px]">
-						<div className="flex flex-row items-center justify-start">
-							<h2 className="text-Poppins textNormal uppercase pr-3">
-								Reservation
-							</h2>
-							<div className="border-t-2 border-[#ffffff33] w-[120px]"></div>
-						</div>
-						<h1 className="font-Play-fair text-[28px] lg:text-[32px]  2xl:text-[36px] text-primary font-bold leading-[54px]">
-							Book a Table
-						</h1>
-					</div>
-					<div className="w-full">
-						<Form />
-					</div>
-				</div>
-			</div>
+			<Form />
+			<Testimonials />
 		</section>
 	);
 };

@@ -210,6 +210,8 @@ section {
 	background-color: #000000d1;
 	z-index: 0;
 }
+
+
 .swiper-pagination .swiper-pagination-bullet {
 	width: 12px;
 	height: 12px;
@@ -248,4 +250,37 @@ textarea:focus-visible {
 	border: 2px solid #cda45e;
 }
 
-/* testimonials */
+/* gallery */
+
+.lg-react-element {
+	display: grid !important;
+	grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+}
+
+@media only screen and (min-width: 768px) {
+	.lg-react-element {
+		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.lg-react-element {
+		grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+	}
+}
+
+/* chefs data */
+
+.chefInfo {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: linear-gradient(
+		0deg,
+		rgba(0, 0, 0, 0.9) 0%,
+		rgba(0, 0, 0, 0.8) 20%,
+		rgba(0, 212, 255, 0) 100%
+	);
+}

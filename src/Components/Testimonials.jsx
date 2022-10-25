@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { ImQuotesLeft } from "react-icons/im";
 import { ImQuotesRight } from "react-icons/im";
 import testimonial1 from "../Assets/Images/testimonials/testimonials-1.jpg";
@@ -30,7 +31,12 @@ const Testimonials = () => {
 						What they're saying about us
 					</h1>
 				</div>
-				<div className="w-full">
+				<motion.div
+					className="w-full"
+					initial={{ opacity: 0, y: 100 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.5 }}>
 					<Swiper
 						modules={[Pagination, Autoplay]}
 						pagination={{
@@ -195,7 +201,7 @@ const Testimonials = () => {
 							</div>
 						</SwiperSlide>
 					</Swiper>
-				</div>
+				</motion.div>
 			</div>
 		</div>
 	);

@@ -46,4 +46,8 @@
 	.avatar {
 		@apply w-[90px]  rounded-full object-cover border-[6px] border-[#ffffff33];
 	}
+
+	.socialIcon {
+		@apply text-[18px] hover:text-primary;
+	}
 }

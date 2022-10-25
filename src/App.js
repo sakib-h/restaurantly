@@ -19,8 +19,8 @@ function App() {
 			<Menu />
 			<Specials />
 			<Events />
-			<Chefs />
 			<Gallery />
+			<Chefs />
 			<Contact />
 		</div>
 	);

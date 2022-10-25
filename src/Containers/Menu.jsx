@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { menuItems } from "../Data/Menu";
+import { menuItems } from "../Data/Data";
 import { motion, AnimatePresence } from "framer-motion";
 const Menu = () => {
 	const [active, setActive] = useState("all");

@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
-
+import { motion } from "framer-motion";
+import {FOCUSABLE_SELECTOR} from "@testing-library/user-event/dist/utils";
 const Form = () => {
 	// declaring refs
 	const nameRef = useRef();
@@ -11,14 +12,18 @@ const Form = () => {
 	const messageRef = useRef();
 
 	// declaring states
-	const [name, setName] = useState("");
-	const [isNameValid, setIsNameValid] = useState(true);
-	const [email, setEmail] = useState("");
-	const [isEmailValid, setIsEmailValid] = useState(true);
-	const [phone, setPhone] = useState("");
-	const [isPhoneValid, setIsPhoneValid] = useState(true);
-
-	const [errorMessage, setErrorMessage] = useState("");
+	const [isNameValid, setIsNameValid] = useState(false);
+	const [nameErrorMessage, setNameErrorMessage] = useState("");
+	const [isEmailValid, setIsEmailValid] = useState(false);
+	const [emailErrorMessage, setEmailErrorMessage] = useState("");
+	const [isPhoneValid, setIsPhoneValid] = useState(false);
+	const [phoneErrorMessage, setPhoneErrorMessage] = useState("");
+	const [isDateValid, setIsDateValid] = useState(false);
+	const [dateErrorMessage, setDateErrorMessage] = useState("");
+	const [isTimeValid, setIsTimeValid] = useState(false);
+	const [timeErrorMessage, setTimeErrorMessage] = useState("");
+	const [isPeopleAdd, setIsPeopleAdd] = useState(false);
+	const [peopleErrorMessage, setPeopleErrorMessage] = useState("");
 
 	// form validation
 
@@ -26,10 +31,9 @@ const Form = () => {
 	const nameValidator = () => {
 		if (/^[a-zA-Z ]{2,30}$/.test(nameRef.current.value)) {
 			setIsNameValid(true);
-			setName(nameRef.current.value);
 		} else {
 			setIsNameValid(false);
-			setErrorMessage("name is invalid");
+			setNameErrorMessage("name is invalid");
 		}
 	};
 
@@ -37,10 +41,9 @@ const Form = () => {
 	const emailValidator = () => {
 		if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailRef.current.value)) {
 			setIsEmailValid(true);
-			setEmail(emailRef.current.value);
 		} else {
 			setIsEmailValid(false);
-			setErrorMessage("Please enter a Valid Email");
+			setEmailErrorMessage("Please enter a Valid Email");
 		}
 	};
 
@@ -48,10 +51,9 @@ const Form = () => {
 	const phoneValidator = () => {
 		if (/^(\+\d{1,3}[- ]?)?\d{10}$/.test(phoneRef.current.value)) {
 			setIsPhoneValid(true);
-			setPhone(phoneRef.current.value);
 		} else {
 			setIsPhoneValid(false);
-			setErrorMessage("Please enter a Valid Number");
+			setPhoneErrorMessage("Please enter a Valid Number");
 		}
 	};
 
@@ -59,6 +61,7 @@ const Form = () => {
 	const date = new Date().toLocaleDateString().split("/");
 	const formattedDate = `${date[2]}-${date[0]}-${date[1]}`;
 
+	// time validation
 	// Current time
 	const time = new Date()
 		.toLocaleTimeString("en-US", {
@@ -68,11 +71,15 @@ const Form = () => {
 	const formattedTime = `${time[0]}:${time[1]}`;
 
 	const handleSubmit = (e) => {
+		console.log(e);
 		e.preventDefault();
 		alert("Form Submitted");
 		nameRef.current.value = "";
+		setIsNameValid(false);
 		emailRef.current.value = "";
+		setIsEmailValid(false);
 		phoneRef.current.value = "";
+		setIsPhoneValid(false);
 		dateRef.current.value = formattedDate;
 		timeRef.current.value = formattedTime;
 		peopleRef.current.value = "";
@@ -92,7 +99,12 @@ const Form = () => {
 						Book a Table
 					</h1>
 				</div>
-				<div className="w-full">
+				<motion.div
+					className="w-full"
+					initial={{ opacity: 0, y: 100 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.5 }}>
 					<form className="flex flex-col justify-center items-center">
 						<div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-5  gap-y-12">
 							<div className="relative">
@@ -103,14 +115,13 @@ const Form = () => {
 									placeholder="Your Name"
 									ref={nameRef}
 									onChange={nameValidator}
-									required
 								/>
 								<span className="absolute top-[-20px] left-0 text-[#a49b89] text-[12px] capitalize">
 									Required (*)
 								</span>
 								{!isNameValid && (
 									<span className="absolute bottom-[-20px] left-0 text-red-400 text-[12px] capitalize">
-										{errorMessage}
+										{nameErrorMessage}
 									</span>
 								)}
 							</div>
@@ -122,14 +133,13 @@ const Form = () => {
 									placeholder="email"
 									ref={emailRef}
 									onChange={emailValidator}
-									required
 								/>
 								<span className="absolute top-[-20px] left-0 text-[#a49b89] text-[12px] capitalize">
 									Required (*)
 								</span>
 								{!isEmailValid && (
 									<span className="absolute bottom-[-20px] left-0 text-red-400 text-[12px] capitalize">
-										{errorMessage}
+										{emailErrorMessage}
 									</span>
 								)}
 							</div>
@@ -141,14 +151,13 @@ const Form = () => {
 									placeholder="Your Phone"
 									ref={phoneRef}
 									onChange={phoneValidator}
-									required
 								/>
 								<span className="absolute top-[-20px] left-0 text-[#a49b89] text-[12px] capitalize">
 									(With Country Code ) (*)
 								</span>
 								{!isPhoneValid && (
 									<span className="absolute bottom-[-20px] left-0 text-red-400 text-[12px] capitalize">
-										{errorMessage}
+										{phoneErrorMessage}
 									</span>
 								)}
 							</div>
@@ -163,7 +172,6 @@ const Form = () => {
 										new Date().getFullYear() + 1
 									}-12-31`}
 									ref={dateRef}
-									required
 									className="cursor-text"
 								/>
 								<span className="absolute top-[-20px] left-0 text-[#a49b89] text-[12px] capitalize">
@@ -173,13 +181,12 @@ const Form = () => {
 							<div className="relative">
 								<input
 									type="time"
-									id="start"
-									name="trip-start"
+									id="time"
+									name="time"
 									defaultValue={`${formattedTime}`}
 									min="10:00"
 									max="22:00"
 									ref={timeRef}
-									required
 									className="cursor-text"
 								/>
 								<span className="absolute top-[-20px] left-0 text-[#a49b89] text-[12px] capitalize">
@@ -195,7 +202,6 @@ const Form = () => {
 									id="people"
 									ref={peopleRef}
 									placeholder="Number of People"
-									required
 								/>
 								<span className="absolute top-[-20px] left-0 text-[#a49b89] text-[12px] capitalize">
 									Max: 100 Person (*)
@@ -225,12 +231,12 @@ const Form = () => {
 										? "opacity-50 cursor-not-allowed"
 										: " "
 								}`}
-								onClick={(e) => handleSubmit(e)}>
+								onClick={handleSubmit}>
 								Book a Table
 							</button>
 						</div>
 					</form>
-				</div>
+				</motion.div>
 			</div>
 		</div>
 	);

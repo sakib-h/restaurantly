@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { specialItems } from "../Data/Menu";
+import { specialItems } from "../Data/Data";
 const Specials = () => {
 	// Setting active item
 	const [active, setActive] = useState(1);

@@ -37,13 +37,14 @@ const Navbar = () => {
 			name: "Events",
 			id: "events",
 		},
-		{
-			name: "Chefs",
-			id: "chefs",
-		},
+
 		{
 			name: "Gallery",
 			id: "gallery",
+		},
+		{
+			name: "Chefs",
+			id: "chefs",
 		},
 		{
 			name: "Contact",
@@ -97,8 +98,8 @@ const Navbar = () => {
 										"menu",
 										"specials",
 										"events",
-										"chefs",
 										"gallery",
+										"chefs",
 										"contact",
 									]}
 									offset={-130}

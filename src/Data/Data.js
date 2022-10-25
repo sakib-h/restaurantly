@@ -1,5 +1,6 @@
 // Importing images
 
+// Menu Images
 import LobsterBisque from "../Assets/Images/menu/lobster-bisque.jpg";
 import BreadBarrel from "../Assets/Images/menu/bread-barrel.jpg";
 import CrabCake from "../Assets/Images/menu/cake.jpg";
@@ -9,11 +10,28 @@ import MozzarellaStick from "../Assets/Images/menu/mozzarella.jpg";
 import GreekSalad from "../Assets/Images/menu/greek-salad.jpg";
 import SpinachSalad from "../Assets/Images/menu/spinach-salad.jpg";
 import LobsterRoll from "../Assets/Images/menu/lobster-roll.jpg";
+
+// Special Item images
 import specials1 from "../Assets/Images/specials-1.png";
 import specials2 from "../Assets/Images/specials-2.png";
 import specials3 from "../Assets/Images/specials-3.png";
 import specials4 from "../Assets/Images/specials-4.png";
 import specials5 from "../Assets/Images/specials-5.png";
+
+// Gallery Images
+import gallery1 from "../Assets/Images/gallery/gallery-1.jpg";
+import gallery2 from "../Assets/Images/gallery/gallery-2.jpg";
+import gallery3 from "../Assets/Images/gallery/gallery-3.jpg";
+import gallery4 from "../Assets/Images/gallery/gallery-4.jpg";
+import gallery5 from "../Assets/Images/gallery/gallery-5.jpg";
+import gallery6 from "../Assets/Images/gallery/gallery-6.jpg";
+import gallery7 from "../Assets/Images/gallery/gallery-7.jpg";
+import gallery8 from "../Assets/Images/gallery/gallery-8.jpg";
+
+// Chefs Images
+import chef1 from "../Assets/Images/chefs/chefs-1.jpg";
+import chef2 from "../Assets/Images/chefs/chefs-2.jpg";
+import chef3 from "../Assets/Images/chefs/chefs-3.jpg";
 
 // Menu Items data
 export const menuItems = [
@@ -148,5 +166,85 @@ export const specialItems = [
 		description:
 			"Exercitationem nostrum omnis. Ut reiciendis repudiandae minus. Omnis recusandae ut non quam ut quod eius qui. Ipsum quia odit vero atque qui quibusdam amet. Occaecati sed est sint aut vitae molestiae voluptate vel",
 		img: specials5,
+	},
+];
+
+// Gallery Data
+export const galleryData = [
+	{
+		id: 1,
+		img: gallery1,
+		alt: "gallery1",
+	},
+
+	{
+		id: 2,
+		img: gallery2,
+		alt: "gallery2",
+	},
+	{
+		id: 3,
+		img: gallery3,
+		alt: "gallery3",
+	},
+	{
+		id: 4,
+		img: gallery4,
+		alt: "gallery4",
+	},
+	{
+		id: 5,
+		img: gallery5,
+		alt: "gallery5",
+	},
+	{
+		id: 6,
+		img: gallery6,
+		alt: "gallery6",
+	},
+	{
+		id: 7,
+		img: gallery7,
+		alt: "gallery7",
+	},
+	{
+		id: 8,
+		img: gallery8,
+		alt: "gallery8",
+	},
+];
+
+// Chefs Data
+
+export const chefsData = [
+	{
+		id: 1,
+		name: "Walter White",
+		role: "Master Chef",
+		twitter: "twitter.com/walter-white",
+		facebook: "facebook.com/walter-white",
+		instagram: "instagram.com/walter-white",
+		linkedin: "linkedin.com/walter-white",
+		img: chef1,
+	},
+	{
+		id: 2,
+		name: "Sarah Jhonson",
+		role: "Patissier",
+		twitter: "twitter.com/sarah-jhonson",
+		facebook: "facebook.com/sarah-jhonson",
+		instagram: "instagram.com/sarah-jhonson",
+		linkedin: "linkedin.com/sarah-jhonson",
+		img: chef2,
+	},
+	{
+		id: 3,
+		name: "William Anderson",
+		role: "Cook",
+		twitter: "twitter.com/william-anterson",
+		facebook: "facebook.com/william-anterson",
+		instagram: "instagram.com/william-anterson",
+		linkedin: "linkedin.com/william-anterson",
+		img: chef3,
 	},
 ];

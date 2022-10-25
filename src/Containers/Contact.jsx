@@ -11,7 +11,7 @@ const Contact = () => {
 	const messageRef = useRef();
 
 	// declaring states
-	const [email, setEmail] = useState("");
+
 	const [isEmailValid, setIsEmailValid] = useState(false);
 	const [errorMessage, setErrorMessage] = useState("");
 
@@ -19,7 +19,6 @@ const Contact = () => {
 	const emailValidator = () => {
 		if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailRef.current.value)) {
 			setIsEmailValid(true);
-			setEmail(emailRef.current.value);
 		} else {
 			setIsEmailValid(false);
 			setErrorMessage("Please enter a Valid Email");

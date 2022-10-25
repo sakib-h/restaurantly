@@ -1,7 +1,19 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import {FOCUSABLE_SELECTOR} from "@testing-library/user-event/dist/utils";
 const Form = () => {
+	// current time and date
+	const date = new Date().toLocaleDateString().split("/");
+	const day = date[1];
+	const formattedDate = `${date[2]}-${date[0]}-${date[1]}`;
+
+	// Current time
+	const time = new Date()
+		.toLocaleTimeString("en-US", {
+			hour12: false,
+		})
+		.split(":");
+	const hour = time[0];
+	const formattedTime = `${time[0]}:${time[1]}`;
 	// declaring refs
 	const nameRef = useRef();
 	const emailRef = useRef();
@@ -18,6 +30,7 @@ const Form = () => {
 	const [emailErrorMessage, setEmailErrorMessage] = useState("");
 	const [isPhoneValid, setIsPhoneValid] = useState(false);
 	const [phoneErrorMessage, setPhoneErrorMessage] = useState("");
+	const [reservationDate, setReservationDate] = useState(formattedDate);
 	const [isDateValid, setIsDateValid] = useState(false);
 	const [dateErrorMessage, setDateErrorMessage] = useState("");
 	const [isTimeValid, setIsTimeValid] = useState(false);
@@ -57,21 +70,24 @@ const Form = () => {
 		}
 	};
 
+	// time & date validation
+
 	// date validation
-	const date = new Date().toLocaleDateString().split("/");
-	const formattedDate = `${date[2]}-${date[0]}-${date[1]}`;
 
-	// time validation
-	// Current time
-	const time = new Date()
-		.toLocaleTimeString("en-US", {
-			hour12: false,
-		})
-		.split(":");
-	const formattedTime = `${time[0]}:${time[1]}`;
+	const dateTimeValidator = () => {
+		const reserveDate = dateRef.current.value.split("-")[2];
 
+		const reserveHour = timeRef.current.value.split(":")[0];
+		if (reserveDate === day && reserveHour < hour) {
+			const reservationDate = Number(day) + 1;
+			setReservationDate(`${date[2]}-${date[0]}-${reservationDate}`);
+		} else {
+			setReservationDate(dateRef.current.value);
+		}
+	};
+
+	console.log(reservationDate);
 	const handleSubmit = (e) => {
-		console.log(e);
 		e.preventDefault();
 		alert("Form Submitted");
 		nameRef.current.value = "";
@@ -173,6 +189,7 @@ const Form = () => {
 									}-12-31`}
 									ref={dateRef}
 									className="cursor-text"
+									onChange={dateTimeValidator}
 								/>
 								<span className="absolute top-[-20px] left-0 text-[#a49b89] text-[12px] capitalize">
 									Reservation Date (*)
@@ -188,6 +205,7 @@ const Form = () => {
 									max="22:00"
 									ref={timeRef}
 									className="cursor-text"
+									onChange={dateTimeValidator}
 								/>
 								<span className="absolute top-[-20px] left-0 text-[#a49b89] text-[12px] capitalize">
 									Time (10:00 AM - 11:00 PM) (*)

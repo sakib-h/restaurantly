@@ -1,19 +1,6 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 const Form = () => {
-	// current time and date
-	const date = new Date().toLocaleDateString().split("/");
-	const day = date[1];
-	const formattedDate = `${date[2]}-${date[0]}-${date[1]}`;
-
-	// Current time
-	const time = new Date()
-		.toLocaleTimeString("en-US", {
-			hour12: false,
-		})
-		.split(":");
-	const hour = time[0];
-	const formattedTime = `${time[0]}:${time[1]}`;
 	// declaring refs
 	const nameRef = useRef();
 	const emailRef = useRef();
@@ -30,13 +17,6 @@ const Form = () => {
 	const [emailErrorMessage, setEmailErrorMessage] = useState("");
 	const [isPhoneValid, setIsPhoneValid] = useState(false);
 	const [phoneErrorMessage, setPhoneErrorMessage] = useState("");
-	const [reservationDate, setReservationDate] = useState(formattedDate);
-	const [isDateValid, setIsDateValid] = useState(false);
-	const [dateErrorMessage, setDateErrorMessage] = useState("");
-	const [isTimeValid, setIsTimeValid] = useState(false);
-	const [timeErrorMessage, setTimeErrorMessage] = useState("");
-	const [isPeopleAdd, setIsPeopleAdd] = useState(false);
-	const [peopleErrorMessage, setPeopleErrorMessage] = useState("");
 
 	// form validation
 
@@ -71,31 +51,36 @@ const Form = () => {
 	};
 
 	// time & date validation
+	// current time and date
+	const date = new Date().toLocaleDateString().split("/");
+	const day = date[1];
+	const formattedDate = `${date[2]}-${date[0]}-${date[1]}`;
+
+	// Current time
+	const time = new Date()
+		.toLocaleTimeString("en-US", {
+			hour12: false,
+		})
+		.split(":");
+	const hour = time[0];
+	const formattedTime = `${time[0]}:${time[1]}`;
 
 	// date validation
-
 	const dateTimeValidator = () => {
 		const reserveDate = dateRef.current.value.split("-")[2];
-
 		const reserveHour = timeRef.current.value.split(":")[0];
 		if (reserveDate === day && reserveHour < hour) {
 			const reservationDate = Number(day) + 1;
-			setReservationDate(`${date[2]}-${date[0]}-${reservationDate}`);
-		} else {
-			setReservationDate(dateRef.current.value);
+			dateRef.current.value = `${date[2]}-${date[0]}-${reservationDate}`;
 		}
 	};
 
-	console.log(reservationDate);
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		alert("Form Submitted");
 		nameRef.current.value = "";
-		setIsNameValid(false);
 		emailRef.current.value = "";
-		setIsEmailValid(false);
 		phoneRef.current.value = "";
-		setIsPhoneValid(false);
 		dateRef.current.value = formattedDate;
 		timeRef.current.value = formattedTime;
 		peopleRef.current.value = "";
@@ -121,7 +106,9 @@ const Form = () => {
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true }}
 					transition={{ duration: 0.5 }}>
-					<form className="flex flex-col justify-center items-center">
+					<form
+						className="flex flex-col justify-center items-center"
+						onSubmit={handleSubmit}>
 						<div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-5  gap-y-12">
 							<div className="relative">
 								<input
@@ -131,6 +118,7 @@ const Form = () => {
 									placeholder="Your Name"
 									ref={nameRef}
 									onChange={nameValidator}
+									required
 								/>
 								<span className="absolute top-[-20px] left-0 text-[#a49b89] text-[12px] capitalize">
 									Required (*)
@@ -149,6 +137,7 @@ const Form = () => {
 									placeholder="email"
 									ref={emailRef}
 									onChange={emailValidator}
+									required
 								/>
 								<span className="absolute top-[-20px] left-0 text-[#a49b89] text-[12px] capitalize">
 									Required (*)
@@ -167,6 +156,7 @@ const Form = () => {
 									placeholder="Your Phone"
 									ref={phoneRef}
 									onChange={phoneValidator}
+									required
 								/>
 								<span className="absolute top-[-20px] left-0 text-[#a49b89] text-[12px] capitalize">
 									(With Country Code ) (*)
@@ -189,7 +179,7 @@ const Form = () => {
 									}-12-31`}
 									ref={dateRef}
 									className="cursor-text"
-									onChange={dateTimeValidator}
+									required
 								/>
 								<span className="absolute top-[-20px] left-0 text-[#a49b89] text-[12px] capitalize">
 									Reservation Date (*)
@@ -206,9 +196,10 @@ const Form = () => {
 									ref={timeRef}
 									className="cursor-text"
 									onChange={dateTimeValidator}
+									required
 								/>
 								<span className="absolute top-[-20px] left-0 text-[#a49b89] text-[12px] capitalize">
-									Time (10:00 AM - 11:00 PM) (*)
+									Time (10:00 AM - 10:00 PM) (*)
 								</span>
 							</div>
 							<div className="relative">
@@ -220,6 +211,7 @@ const Form = () => {
 									id="people"
 									ref={peopleRef}
 									placeholder="Number of People"
+									required
 								/>
 								<span className="absolute top-[-20px] left-0 text-[#a49b89] text-[12px] capitalize">
 									Max: 100 Person (*)
@@ -239,19 +231,21 @@ const Form = () => {
 								</span>
 							</div>
 						</div>
-						<div className="">
-							<button
-								type="submit"
-								className={`bg-primary px-[35px] py-[10px] text-[#ffffff] rounded-[50px] cursor-pointer hover:bg-[#d3af71] transition-all ease-in duration-400 ${
-									!isNameValid ||
-									!isEmailValid ||
-									!isPhoneValid
-										? "opacity-50 cursor-not-allowed"
-										: " "
-								}`}
-								onClick={handleSubmit}>
-								Book a Table
-							</button>
+						<div>
+							{!isNameValid || !isEmailValid || !isPhoneValid ? (
+								<button
+									type="submit"
+									className="bg-primary px-[35px] py-[10px] text-[#ffffff] rounded-[50px]  hover:bg-[#d3af71] transition-all ease-in duration-400 opacity-50"
+									disabled>
+									Book a Table
+								</button>
+							) : (
+								<button
+									type="submit"
+									className="bg-primary px-[35px] py-[10px] text-[#ffffff] rounded-[50px] cursor-pointer hover:bg-[#d3af71] transition-all ease-in duration-400 ">
+									Book a Table
+								</button>
+							)}
 						</div>
 					</form>
 				</motion.div>

@@ -113,7 +113,9 @@ const Contact = () => {
 							</div>
 						</div>
 						<div className="lg:col-span-2">
-							<form className="flex flex-col justify-center items-center">
+							<form
+								className="flex flex-col justify-center items-center"
+								onSubmit={handleSubmit}>
 								<div className="w-full grid grid-cols-1 md:grid-cols-2  gap-5">
 									<div className="relative">
 										<input
@@ -160,20 +162,25 @@ const Contact = () => {
 											placeholder="Message (Max Length 500 characters)"
 											rows="5"
 											maxLength="500"
+											required
 										/>
 									</div>
 								</div>
-								<div className="">
-									<button
-										type="submit"
-										className={`bg-primary px-[35px] py-[10px] text-[#ffffff] rounded-[50px] cursor-pointer hover:bg-[#d3af71] transition-all ease-in duration-400 ${
-											!isEmailValid
-												? "opacity-50 cursor-not-allowed"
-												: " "
-										}`}
-										onClick={(e) => handleSubmit(e)}>
-										Book a Table
-									</button>
+								<div>
+									{!isEmailValid ? (
+										<button
+											type="submit"
+											className="bg-primary px-[35px] py-[10px] text-[#ffffff] rounded-[50px]  hover:bg-[#d3af71] transition-all ease-in duration-400 opacity-50"
+											disabled>
+											Send Message
+										</button>
+									) : (
+										<button
+											type="submit"
+											className="bg-primary px-[35px] py-[10px] text-[#ffffff] rounded-[50px] cursor-pointer hover:bg-[#d3af71] transition-all ease-in duration-400 ">
+											Send Message
+										</button>
+									)}
 								</div>
 							</form>
 						</div>

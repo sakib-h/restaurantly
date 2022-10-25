@@ -30,7 +30,7 @@ const Chefs = () => {
 						Our Professional Chefs
 					</h1>
 				</div>
-				<div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-5">
+				<div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
 					{chefsData.map((data) => (
 						<AnimatePresence key={data.id}>
 							<motion.div
@@ -38,7 +38,11 @@ const Chefs = () => {
 								whileHover="hover"
 								exit="initial"
 								className=" cursor-pointer relative transition duration-300 overflow-hidden">
-								<img src={data.img} alt={data.name} />
+								<img
+									src={data.img}
+									alt={data.name}
+									className="w-full h-auto"
+								/>
 								<motion.div
 									className="chefInfo"
 									variants={hoverVariants}>

@@ -123,13 +123,13 @@ const About = () => {
 						</h1>
 					</div>
 
-					<div className="flex flex-col lg:flex-row justify-between items-center gap-5">
+					<div className="grid grid-cols-1 lg:grid-cols-3  gap-5">
 						{aboutCards.map((card) => (
 							<motion.div
 								key={card.index}
 								whileHover="hover"
 								variants={backGroundColor}
-								className="bg-[#1a1814] py-12 px-8 w-full">
+								className="bg-[#1a1814] py-12 px-8 w-full h-full">
 								<motion.span
 									className="text-primary font-bold text-[1.75rem] font-Open-sans leading-[2.5rem]"
 									variants={whiteColor}>

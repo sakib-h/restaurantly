@@ -35,8 +35,8 @@ const Contact = () => {
 		messageRef.current.value = "";
 	};
 	return (
-		<section id="contact" className=" text-[#ffffff] bg-[#0C0B09]">
-			<div className="events relative py-32 ">
+		<div id="contact" className=" text-[#ffffff] bg-[#0C0B09] py-32">
+			<div className="events relative  ">
 				<div className="container">
 					<div className="title mb-[40px]">
 						<div className="flex flex-row items-center justify-start">
@@ -180,7 +180,7 @@ const Contact = () => {
 					</div>
 				</div>
 			</div>
-		</section>
+		</div>
 	);
 };
 

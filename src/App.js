@@ -8,6 +8,7 @@ import Events from "./Containers/Events";
 import Chefs from "./Containers/Chefs";
 import Gallery from "./Containers/Gallery";
 import Contact from "./Containers/Contact";
+import Footer from "./Components/Footer";
 
 function App() {
 	return (
@@ -22,6 +23,7 @@ function App() {
 			<Gallery />
 			<Chefs />
 			<Contact />
+			<Footer />
 		</div>
 	);
 }

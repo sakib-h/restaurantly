@@ -1,3 +1,5 @@
+# Restaurantly - Modern Resturant Website
+
 Live: https://restaurantly-modern-app.netlify.app/
 
 Modern Resturent website build with React & Tailwind CSS
